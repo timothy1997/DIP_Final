@@ -12,10 +12,9 @@ for file in os.listdir(directory):
     filename1 = os.fsdecode(file)
     filename = os.path.join(train_dir,filename1)
     if "mask" in filename:
-        labels.append(filename)
-        print(filename)
+        labels.append(cv.imread(filename,cv.IMREAD_COLOR))
     else:
-        trainingData.append(filename)
+        trainingData.append(cv.imread(filename,cv.IMREAD_COLOR))
 
 # Set up training data
 labels = np.array([1, -1, -1, -1])
