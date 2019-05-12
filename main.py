@@ -1,5 +1,21 @@
 import cv2 as cv
 import numpy as np
+import os
+
+train_dir = "/home/timothy/programming projects/DIP_Final/train/"
+
+# Read in the training data
+trainingData = []
+labels = []
+directory = os.fsencode(train_dir)
+for file in os.listdir(directory):
+    filename1 = os.fsdecode(file)
+    filename = os.path.join(train_dir,filename1)
+    if "mask" in filename:
+        labels.append(filename)
+        print(filename)
+    else:
+        trainingData.append(filename)
 
 # Set up training data
 labels = np.array([1, -1, -1, -1])
